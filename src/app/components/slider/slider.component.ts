@@ -1,13 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
+import { IMAGES_BASE_URL, IMAGES_SIZE } from '../../constants/images-sizes';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrl: './slider.component.scss',
+  styleUrls: ['./slider.component.scss'],
+  animations: [
+    trigger('slideFade', [
+      state('void', style({ opacity: 0 })),
+      transition('void <=> *', [animate('1s')]),
+    ]),
+  ],
 })
-export class SliderComponent {
+export class SliderComponent implements OnInit {
+  moviesLength: number = 0;
+  IMAGES_BASE_URL = IMAGES_BASE_URL;
+  IMAGES_SIZE = IMAGES_SIZE;
+
   constructor(private moviesService: MoviesService) {}
 
   movies$ = this.moviesService.getPopularMovies();
+
+  slideIndex = 0;
+
+  ngOnInit(): void {
+    this.movies$.subscribe((movies) => {
+      this.moviesLength = movies.results.length;
+    });
+
+    setInterval(() => {
+      this.slideIndex < this.moviesLength - 1
+        ? (this.slideIndex += 1)
+        : (this.slideIndex = 0);
+    }, 5000);
+  }
+
+  formatRating(num: number): number {
+    return Math.round(num * 10) / 10;
+  }
 }

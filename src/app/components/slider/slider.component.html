@@ -1,35 +1,41 @@
-<div class="slider">
-  <div class="slide">
-    <div class="slide-bg">
-      <img
-        src="https://image.tmdb.org/t/p/original/2vFuG6bWGyQUzYS9d69E5l85nIz.jpg"
-        alt=""
-      />
-    </div>
-    <div class="slide-pane">
-      <h2 class="title">Slider Title</h2>
-      <div class="meta mb-4">
-        <div class="rating mb-1">
-          <i class="pi pi-star-fill"></i>
-          <span>8.9</span>
-          <span>/10</span>
-        </div>
-        <div class="votes mb-1">
-          <i class="pi pi-users"></i>
-          <span>7777</span>
-        </div>
-        <div class="release-date">
-          <i class="pi pi-calendar"></i>
-          <span>20.06.2024</span>
-        </div>
+<div class="slider" *ngIf="movies$ | async as movies">
+  <ng-container *ngFor="let movie of movies.results; let movieIndex = index">
+    <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
+      <div class="slide-bg">
+        <img
+          [src]="IMAGES_BASE_URL + IMAGES_SIZE + movie.backdrop_path"
+          [alt]="movie.title"
+        />
       </div>
-      <div class="description">Some text will go here.</div>
+      <div class="slide-pane">
+        <h2 class="title">
+          {{ movie.original_title }}
+          <span class="domestic-title" *ngIf="movie.original_language !== 'en'">
+            ( {{ movie.title }} )
+          </span>
+        </h2>
+
+        <div class="meta mb-4">
+          <div class="rating mb-1">
+            <i class="pi pi-star-fill"></i>
+            <span>{{ formatRating(movie.vote_average) }}</span>
+            <span> / 10</span>
+          </div>
+          <div class="votes mb-1">
+            <i class="pi pi-users"></i>
+            <span>{{ movie.vote_count }}</span>
+          </div>
+          <div class="release-date">
+            <i class="pi pi-calendar"></i>
+            <span>{{ movie.release_date | date : "yyyy" }}</span>
+          </div>
+        </div>
+        <div class="description">{{ movie.overview }}</div>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>
 
-<div *ngIf="movies$ | async as movies">
-  <div *ngFor="let movie of movies.results">
-    {{ movie.original_title }}
-  </div>
-</div>
+<!-- <pre>
+  {{ movies$ | async | json }}
+</pre> -->
