@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IMAGES_BASE_URL } from '../../constants/images-sizes';
+import { Movie } from '../../types/movie';
+import { formatRating } from '../../utils/movie-utils';
 
 @Component({
   selector: 'app-show-item',
@@ -8,4 +10,6 @@ import { IMAGES_BASE_URL } from '../../constants/images-sizes';
 })
 export class ShowItemComponent {
   IMAGES_BASE_URL = IMAGES_BASE_URL;
+  formatRating = formatRating;
+  @Input() showItem: Movie | null = null;
 }

@@ -16,4 +16,10 @@ export class MoviesService {
       `${this.apiUrl}movie/popular?api_key=${this.TMDB_API_KEY}`
     );
   }
+
+  getUpcomingMovies() {
+    return this.http.get<MoviesDto>(
+      `${this.apiUrl}movie/upcoming?api_key=${this.TMDB_API_KEY}`
+    );
+  }
 }
