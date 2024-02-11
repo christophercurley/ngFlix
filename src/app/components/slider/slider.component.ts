@@ -40,7 +40,7 @@ export class SliderComponent implements OnInit {
       this.slideIndex < this.moviesLength - 1
         ? (this.slideIndex += 1)
         : (this.slideIndex = 0);
-    }, 5000);
+    }, 7000);
   }
 
   formatRating(num: number): number {
