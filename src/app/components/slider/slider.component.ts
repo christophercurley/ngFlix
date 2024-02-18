@@ -35,7 +35,7 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.movies$.subscribe((movies) => {
-      this.moviesLength = movies.results.length;
+      this.moviesLength = movies.length;
     });
 
     setInterval(() => {
