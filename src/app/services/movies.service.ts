@@ -12,11 +12,11 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {}
 
-  getMoviesByType(type: string) {
+  getMoviesByType(type: string, count = 20) {
     return this.http
       .get<MoviesDto>(
         `${this.apiUrl}movie/${type}?api_key=${this.TMDB_API_KEY}`
       )
-      .pipe(map((data) => data.results));
+      .pipe(map((data) => data.results.slice(0, count)));
   }
 }
