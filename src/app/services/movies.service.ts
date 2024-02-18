@@ -11,21 +11,9 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {}
 
-  getPopularMovies() {
+  getMoviesByType(type: string) {
     return this.http.get<MoviesDto>(
-      `${this.apiUrl}movie/popular?api_key=${this.TMDB_API_KEY}`
-    );
-  }
-
-  getUpcomingMovies() {
-    return this.http.get<MoviesDto>(
-      `${this.apiUrl}movie/upcoming?api_key=${this.TMDB_API_KEY}`
-    );
-  }
-
-  getTopRatedMovies() {
-    return this.http.get<MoviesDto>(
-      `${this.apiUrl}movie/top_rated?api_key=${this.TMDB_API_KEY}`
+      `${this.apiUrl}movie/${type}?api_key=${this.TMDB_API_KEY}`
     );
   }
 }
