@@ -1,10 +1,13 @@
 <a class="show-item">
   <div class="show-item-rating">
     <i class="pi pi-star-fill"></i>
-    <span>{{ showItem?.vote_average }} / 10</span>
+    <span>{{ showItem && formatRating(showItem.vote_average) }} / 10</span>
   </div>
   <div class="show-item-image">
-    <img [src]="IMAGES_BASE_URL + 'original' + showItem?.poster_path" alt="" />
+    <img
+      [src]="IMAGES_BASE_URL + '/w300' + showItem?.poster_path"
+      [alt]="showItem?.title"
+    />
   </div>
-  <div class="show-item-title">Movie Title</div>
+  <div class="show-item-title">{{ showItem?.title }}</div>
 </a>

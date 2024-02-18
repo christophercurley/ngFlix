@@ -22,4 +22,10 @@ export class MoviesService {
       `${this.apiUrl}movie/upcoming?api_key=${this.TMDB_API_KEY}`
     );
   }
+
+  getTopRatedMovies() {
+    return this.http.get<MoviesDto>(
+      `${this.apiUrl}movie/top_rated?api_key=${this.TMDB_API_KEY}`
+    );
+  }
 }
