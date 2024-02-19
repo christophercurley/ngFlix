@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MoviesDto } from '../types/movie';
+import { TvshowDto } from '../types/tvshows';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -12,9 +12,9 @@ export class TvshowsService {
 
   constructor(private http: HttpClient) {}
 
-  getMoviesByType(type: string, count = 20) {
+  getTvShowsByType(type: string, count = 20) {
     return this.http
-      .get<MoviesDto>(`${this.apiUrl}tv/${type}?api_key=${this.TMDB_API_KEY}`)
+      .get<TvshowDto>(`${this.apiUrl}tv/${type}?api_key=${this.TMDB_API_KEY}`)
       .pipe(map((data) => data.results.slice(0, count)));
   }
 }

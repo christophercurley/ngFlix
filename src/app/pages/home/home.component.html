@@ -10,3 +10,10 @@
     [shows]="topRatedMovies"
   ></app-banner>
 </ng-container>
+
+<ng-container *ngIf="popularTvshows$ | async as popularTvshows">
+  <app-banner
+    [title]="'Popular TV Shows'"
+    [shows]="popularTvshows"
+  ></app-banner>
+</ng-container>
