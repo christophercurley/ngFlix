@@ -1,13 +1,17 @@
-<a class="show-item movie-card" *ngIf="showItem" [routerLink]="'details'">
+<a
+  class="show-item movie-card"
+  *ngIf="showItem"
+  [routerLink]="'details/' + showItem.id"
+>
   <div class="show-item-rating">
     <i class="pi pi-star-fill"></i>
     <span>{{ showItem && formatRating(showItem.vote_average) }} / 10</span>
   </div>
   <div class="show-item-image">
     <img
-      [src]="IMAGES_BASE_URL + '/w300' + showItem?.poster_path"
-      [alt]="showItem?.title"
+      [src]="IMAGES_BASE_URL + '/w300' + showItem.poster_path"
+      [alt]="showItem.title"
     />
   </div>
-  <div class="show-item-title">{{ showItem?.title }}</div>
+  <div class="show-item-title">{{ showItem.title }}</div>
 </a>
