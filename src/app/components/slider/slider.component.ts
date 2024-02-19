@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../../services/movies.service';
-import { formatRating } from '../../utils/movie-utils';
+import { Component, Input, OnInit } from '@angular/core';
+import { formatRating } from '../../utils/movies-utils';
 import { IMAGES_BASE_URL, IMAGES_SIZE } from '../../constants/images-sizes';
 import {
   animate,
@@ -9,6 +8,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { Media } from '../../types/media';
 
 @Component({
   selector: 'app-slider',
@@ -22,24 +22,22 @@ import {
   ],
 })
 export class SliderComponent implements OnInit {
-  moviesLength: number = 0;
+  @Input() medias: Media[] = [];
+
+  mediasLength: number = 0;
   IMAGES_BASE_URL = IMAGES_BASE_URL;
   IMAGES_SIZE = IMAGES_SIZE;
   formatRating = formatRating;
 
-  constructor(private moviesService: MoviesService) {}
-
-  movies$ = this.moviesService.getMoviesByType('popular');
+  constructor() {}
 
   slideIndex = 0;
 
   ngOnInit(): void {
-    this.movies$.subscribe((movies) => {
-      this.moviesLength = movies.length;
-    });
+    this.mediasLength = this.medias.length;
 
     setInterval(() => {
-      this.slideIndex < this.moviesLength - 1
+      this.slideIndex < this.mediasLength - 1
         ? (this.slideIndex += 1)
         : (this.slideIndex = 0);
     }, 7000);

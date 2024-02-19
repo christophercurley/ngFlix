@@ -1,36 +1,36 @@
-<div class="slider" *ngIf="movies$ | async as movies">
-  <ng-container *ngFor="let movie of movies; let movieIndex = index">
-    <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
+<div class="slider" *ngIf="medias">
+  <ng-container *ngFor="let media of medias; let mediaIndex = index">
+    <div class="slide" *ngIf="mediaIndex === slideIndex" @slideFade>
       <div class="slide-bg">
         <img
-          [src]="IMAGES_BASE_URL + IMAGES_SIZE + movie.backdrop_path"
-          [alt]="movie.title"
+          [src]="IMAGES_BASE_URL + IMAGES_SIZE + media.backdrop_path"
+          [alt]="media.title"
         />
       </div>
       <div class="slide-pane">
         <h2 class="title">
-          {{ movie.original_title }}
-          <span class="domestic-title" *ngIf="movie.original_language !== 'en'">
-            ( {{ movie.title }} )
+          {{ media.original_title }}
+          <span class="domestic-title" *ngIf="media.original_language !== 'en'">
+            ( {{ media.title }} )
           </span>
         </h2>
 
         <div class="meta mb-4">
           <div class="rating mb-1">
             <i class="pi pi-star-fill"></i>
-            <span>{{ formatRating(movie.vote_average) }}</span>
+            <span>{{ formatRating(media.vote_average) }}</span>
             <span> / 10</span>
           </div>
           <div class="votes mb-1">
             <i class="pi pi-users"></i>
-            <span>{{ movie.vote_count }}</span>
+            <span>{{ media.vote_count }}</span>
           </div>
           <div class="release-date">
             <i class="pi pi-calendar"></i>
-            <span>{{ movie.release_date | date : "yyyy" }}</span>
+            <span>{{ media.release_date | date : "yyyy" }}</span>
           </div>
         </div>
-        <div class="description">{{ movie.overview }}</div>
+        <div class="description">{{ media.overview }}</div>
       </div>
     </div>
   </ng-container>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Movie } from '../../types/movie';
+import { Media } from '../../types/media';
 
 @Component({
   selector: 'app-banner',
@@ -7,6 +7,6 @@ import { Movie } from '../../types/movie';
   styleUrl: './banner.component.scss',
 })
 export class BannerComponent {
-  @Input() shows: Movie[] = [];
+  @Input() medias: Media[] = [];
   @Input() title: string = '';
 }
