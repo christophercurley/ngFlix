@@ -36,6 +36,10 @@ export class SliderComponent implements OnInit {
   ngOnInit(): void {
     this.mediasLength = this.medias.length;
 
+    this.mediasLength > 1 && this.changeSlide();
+  }
+
+  changeSlide() {
     setInterval(() => {
       this.slideIndex < this.mediasLength - 1
         ? (this.slideIndex += 1)

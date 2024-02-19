@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
-import { Movie } from '../../types/movie';
 import { Observable } from 'rxjs';
+import { Media } from '../../types/media';
 
 @Component({
   selector: 'app-show-detail',
@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
   styleUrl: './show-detail.component.scss',
 })
 export class ShowDetailComponent implements OnInit {
-  showId: string = '';
-  show$: Observable<Movie> | null = null;
+  mediaId: string = '';
+  media$: Observable<Media> | null = null;
 
   constructor(
     private router: ActivatedRoute,
@@ -20,9 +20,9 @@ export class ShowDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
-      this.showId = params['id'];
+      this.mediaId = params['id'];
     });
 
-    this.show$ = this.moviesService.getMovieById(this.showId);
+    this.media$ = this.moviesService.getMovieById(this.mediaId);
   }
 }
