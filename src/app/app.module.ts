@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
 import { ShowItemComponent } from './components/show-item/show-item.component';
 import { TvshowsService } from './services/tvshows.service';
+import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TvshowsService } from './services/tvshows.service';
     SliderComponent,
     BannerComponent,
     ShowItemComponent,
+    ShowDetailComponent,
   ],
   imports: [
     BrowserModule,
