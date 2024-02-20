@@ -7,5 +7,6 @@ export const formatRating = (num: number): number => {
 export function mapMovieToMedia(movie: Movie) {
   return {
     ...movie,
+    mediaType: 'movie',
   };
 }

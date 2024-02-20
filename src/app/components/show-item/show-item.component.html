@@ -1,7 +1,9 @@
 <a
   class="show-item movie-card"
   *ngIf="showItem"
-  [routerLink]="'details/' + showItem.id"
+  (click)="navigateToDetails()"
+  (keydown.enter)="navigateToDetails()"
+  tabindex="0"
 >
   <div class="show-item-rating">
     <i class="pi pi-star-fill"></i>

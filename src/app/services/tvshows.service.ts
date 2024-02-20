@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TvshowDto } from '../types/tvshows';
+import { Tvshow, TvshowDto } from '../types/tvshows';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -16,5 +16,11 @@ export class TvshowsService {
     return this.http
       .get<TvshowDto>(`${this.apiUrl}tv/${type}?api_key=${this.TMDB_API_KEY}`)
       .pipe(map((data) => data.results.slice(0, count)));
+  }
+
+  getTvshowById(id: string) {
+    return this.http.get<Tvshow>(
+      `${this.apiUrl}tv/${id}?api_key=${this.TMDB_API_KEY}`
+    );
   }
 }

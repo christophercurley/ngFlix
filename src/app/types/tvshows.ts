@@ -12,6 +12,8 @@ export type Tvshow = {
   name: string;
   vote_average: number;
   vote_count: number;
+  revenue?: number;
+  budget?: number;
 };
 
 export type TvshowDto = {

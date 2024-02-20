@@ -1,5 +1,6 @@
 export type Media = {
   id: number;
+  mediaType: string;
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -13,4 +14,6 @@ export type Media = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  revenue?: number;
+  budget?: number;
 };

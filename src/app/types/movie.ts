@@ -13,6 +13,8 @@ export type Movie = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  revenue?: number;
+  budget?: number;
 };
 
 export type MoviesDto = {
