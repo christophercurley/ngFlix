@@ -15,6 +15,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ShowItemComponent } from './components/show-item/show-item.component';
 import { TvshowsService } from './services/tvshows.service';
 import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    TabViewModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],
