@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Media } from '../../types/media';
 import { IMAGES_SIZES } from '../../constants/images-sizes';
 import { Video } from '../../types/video';
+import { Image } from '../../types/images';
 
 @Component({
   selector: 'app-show-detail',
@@ -15,6 +16,7 @@ export class ShowDetailComponent implements OnInit {
   mediaId: string = '';
   media$: Observable<Media> | null = null;
   mediaVideos$: Observable<Video[]> | null = null;
+  mediaImages$: Observable<Image[]> | null = null;
   imagesSizes = IMAGES_SIZES;
   private mediaType: string = '';
 
@@ -38,6 +40,11 @@ export class ShowDetailComponent implements OnInit {
     );
 
     this.mediaVideos$ = this.mediasService.getVideosByMediaTypeAndId(
+      this.mediaType,
+      this.mediaId
+    );
+
+    this.mediaImages$ = this.mediasService.getImagesByMediaTypeAndId(
       this.mediaType,
       this.mediaId
     );

@@ -16,6 +16,7 @@ import { ShowItemComponent } from './components/show-item/show-item.component';
 import { TvshowsService } from './services/tvshows.service';
 import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
 import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { VideoEmbedComponent } from './components/video-embed/video-embed.compon
     HttpClientModule,
     BrowserAnimationsModule,
     TabViewModule,
+    ImageModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Tvshow, TvshowDto } from '../types/tvshow';
 import { map } from 'rxjs';
 import { VideosDTO } from '../types/video';
+import { ImagesDTO } from '../types/images';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,12 @@ export class TvshowsService {
   getTvshowVideos(id: string) {
     return this.http.get<VideosDTO>(
       `${this.apiUrl}tv/${id}/videos?api_key=${this.TMDB_API_KEY}`
+    );
+  }
+
+  getTvshowImages(id: string) {
+    return this.http.get<ImagesDTO>(
+      `${this.apiUrl}tv/${id}/images?api_key=${this.TMDB_API_KEY}`
     );
   }
 }
