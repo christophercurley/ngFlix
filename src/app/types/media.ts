@@ -1,3 +1,5 @@
+import { Genre } from './genre';
+
 export type Media = {
   id: number;
   mediaType: string;
@@ -16,4 +18,7 @@ export type Media = {
   vote_count: number;
   revenue?: number;
   budget?: number;
+  runtime?: string;
+  status?: string;
+  genres?: Genre[];
 };

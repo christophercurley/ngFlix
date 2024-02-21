@@ -7,7 +7,7 @@
         <div class="col-3">
           <img
             class="poster"
-            [src]="imagesSizes.medium + media.poster_path"
+            [src]="imagesSizes.large + media.poster_path"
             alt=""
           />
         </div>
@@ -30,13 +30,31 @@
           <div class="statistic">
             <div class="label">Budget:</div>
             <div class="value">
-              {{ media.budget }}
+              {{ media.budget | currency }}
             </div>
           </div>
           <div class="statistic">
             <div class="label">Box Office:</div>
             <div class="value">
-              {{ media.revenue }}
+              {{ media.revenue | currency }}
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="label">Duration:</div>
+            <div class="value">{{ media.runtime }} min</div>
+          </div>
+          <div class="statistic">
+            <div class="label">Status:</div>
+            <div class="value">
+              {{ media.status }}
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="label">Genres:</div>
+            <div class="value">
+              <span *ngFor="let genre of media.genres">
+                {{ genre.name }}
+              </span>
             </div>
           </div>
         </div>

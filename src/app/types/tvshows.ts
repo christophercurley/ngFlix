@@ -1,3 +1,5 @@
+import { Genre } from './genre';
+
 export type Tvshow = {
   id: number;
   adult: boolean;
@@ -14,6 +16,9 @@ export type Tvshow = {
   vote_count: number;
   revenue?: number;
   budget?: number;
+  runtime?: string;
+  status?: string;
+  genres?: Genre[];
 };
 
 export type TvshowDto = {

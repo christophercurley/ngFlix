@@ -1,3 +1,5 @@
+import { Genre } from './genre';
+
 export type Movie = {
   id: number;
   adult: boolean;
@@ -15,6 +17,9 @@ export type Movie = {
   vote_count: number;
   revenue?: number;
   budget?: number;
+  runtime?: string;
+  status?: string;
+  genres?: Genre[];
 };
 
 export type MoviesDto = {
