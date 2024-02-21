@@ -60,7 +60,15 @@
         </div>
       </div>
     </p-tabPanel>
-    <p-tabPanel header="Videos"> </p-tabPanel>
+    <p-tabPanel header="Videos">
+      <ng-container *ngIf="mediaVideos$ | async as mediaVideos">
+        <div class="grid">
+          <div class="col-4" *ngFor="let video of mediaVideos">
+            <app-video-embed [video]="video"></app-video-embed>
+          </div>
+        </div>
+      </ng-container>
+    </p-tabPanel>
     <p-tabPanel header="Photos">
       <p>
         At vero eos et accusamus et iusto odio dignissimos ducimus qui

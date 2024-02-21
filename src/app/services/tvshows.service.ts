@@ -27,7 +27,7 @@ export class TvshowsService {
 
   getTvshowVideos(id: string) {
     return this.http.get<VideosDTO>(
-      `${this.apiUrl}tv/${id}/video?api_key=${this.TMDB_API_KEY}`
+      `${this.apiUrl}tv/${id}/videos?api_key=${this.TMDB_API_KEY}`
     );
   }
 }

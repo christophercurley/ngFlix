@@ -29,7 +29,7 @@ export class MoviesService {
 
   getMovieVideos(id: string) {
     return this.http.get<VideosDTO>(
-      `${this.apiUrl}movie/${id}/video?api_key=${this.TMDB_API_KEY}`
+      `${this.apiUrl}movie/${id}/videos?api_key=${this.TMDB_API_KEY}`
     );
   }
 }
