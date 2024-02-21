@@ -1,4 +1,4 @@
-import { Tvshow } from '../types/tvshows';
+import { Tvshow } from '../types/tvshow';
 
 export function mapTvshowToMedia(tvshow: Tvshow) {
   return {
