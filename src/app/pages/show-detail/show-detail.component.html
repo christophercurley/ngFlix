@@ -86,9 +86,8 @@
   </p-tabView>
 
   <ng-container *ngIf="mediaCredits$ | async as credits">
-    <hr />
-    <h2 class="centered">Cast and Crew</h2>
-    <hr />
+    <h1>Cast and Crew</h1>
+
     <p-carousel
       [value]="credits"
       [numVisible]="6"

@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { TvshowsService } from '../../services/tvshows.service';
 import { mapTvshowToMedia } from '../../utils/tvshows-utils';
-import { map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { mapMovieToMedia } from '../../utils/movies-utils';
+import { Media } from '../../types/media';
 
 @Component({
   selector: 'app-home',
@@ -11,16 +12,16 @@ import { mapMovieToMedia } from '../../utils/movies-utils';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  popularMovies$ = this.moviesService
+  popularMovies$: Observable<Media[]> = this.moviesService
     .getMoviesByType('popular', 12)
     .pipe(map((tvshows) => tvshows.map(mapMovieToMedia)));
-  upcomingMovies$ = this.moviesService
+  upcomingMovies$: Observable<Media[]> = this.moviesService
     .getMoviesByType('upcoming', 12)
     .pipe(map((tvshows) => tvshows.map(mapMovieToMedia)));
-  topRatedMovies$ = this.moviesService
+  topRatedMovies$: Observable<Media[]> = this.moviesService
     .getMoviesByType('top_rated', 12)
     .pipe(map((tvshows) => tvshows.map(mapMovieToMedia)));
-  popularTvshows$ = this.tvshowsService
+  popularTvshows$: Observable<Media[]> = this.tvshowsService
     .getTvShowsByType('popular', 12)
     .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
 

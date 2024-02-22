@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MediasService } from '../../services/medias.service';
 import { Observable } from 'rxjs';
 import { Media } from '../../types/media';
@@ -24,15 +24,15 @@ export class ShowDetailComponent implements OnInit {
   mediaType: string = '';
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private mediasService: MediasService
-  ) {
-    const navigation = this.router.getCurrentNavigation();
-    this.mediaType = navigation?.extras.state?.['mediaType'];
-  }
+  ) {}
 
   ngOnInit(): void {
+    this.route.url.subscribe((url) => {
+      this.mediaType = url[0].path.includes('tv') ? 'tv' : 'movie';
+    });
+
     this.route.params.subscribe((params) => {
       this.mediaId = params['id'];
 

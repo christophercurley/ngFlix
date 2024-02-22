@@ -16,12 +16,17 @@ export class ShowItemComponent {
 
   constructor(private router: Router) {}
 
-  navigateToDetails() {
+  navigateToDetails(mediaType: string) {
     if (this.showItem) {
-      console.log(this.showItem.id);
-      this.router.navigate(['details/' + this.showItem.id], {
-        state: { mediaType: this.showItem.mediaType },
-      });
+      if (mediaType === 'movie') {
+        this.router.navigate(['movies/details/' + this.showItem.id], {
+          state: { mediaType: this.showItem.mediaType },
+        });
+      } else {
+        this.router.navigate(['tv/details/' + this.showItem.id], {
+          state: { mediaType: this.showItem.mediaType },
+        });
+      }
     }
   }
 }

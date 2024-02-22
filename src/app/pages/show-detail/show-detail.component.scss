@@ -1,5 +1,9 @@
 @import "../../styles/colors";
 
+h1 {
+  padding-left: 1rem;
+}
+
 ::ng-deep {
   .p-tabview .p-tabview-nav {
     justify-content: center;
@@ -50,12 +54,4 @@
   div {
     text-align: center;
   }
-}
-
-hr {
-  color: #1f1f1f;
-}
-
-.centered {
-  text-align: center;
 }

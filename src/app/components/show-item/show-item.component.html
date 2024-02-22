@@ -1,8 +1,8 @@
 <a
   class="show-item movie-card"
   *ngIf="showItem"
-  (click)="navigateToDetails()"
-  (keydown.enter)="navigateToDetails()"
+  (click)="navigateToDetails(showItem.mediaType)"
+  (keydown.enter)="navigateToDetails(showItem.mediaType)"
   tabindex="0"
 >
   <div class="show-item-rating">
