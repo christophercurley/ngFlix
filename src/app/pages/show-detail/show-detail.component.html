@@ -113,3 +113,10 @@
 <ng-template #defaultCreditPhoto>
   <img src="assets/images/actor.jpg" alt="" />
 </ng-template>
+
+<ng-container *ngIf="relatedMedias$ | async as relatedMedias">
+  <app-banner
+    [title]="'Related ' + mediaType + 's'"
+    [medias]="relatedMedias"
+  ></app-banner>
+</ng-container>

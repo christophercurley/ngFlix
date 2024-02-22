@@ -19,8 +19,9 @@ export class ShowDetailComponent implements OnInit {
   mediaVideos$: Observable<Video[]> | null = null;
   mediaImages$: Observable<Image[]> | null = null;
   mediaCredits$: Observable<Credit[]> | null = null;
+  relatedMedias$: Observable<Media[]> | null = null;
   imagesSizes = IMAGES_SIZES;
-  private mediaType: string = '';
+  mediaType: string = '';
 
   constructor(
     private router: Router,
@@ -34,26 +35,31 @@ export class ShowDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.mediaId = params['id'];
+
+      this.media$ = this.mediasService.getMediaByTypeAndId(
+        this.mediaType,
+        this.mediaId
+      );
+
+      this.mediaVideos$ = this.mediasService.getVideosByMediaTypeAndId(
+        this.mediaType,
+        this.mediaId
+      );
+
+      this.mediaImages$ = this.mediasService.getImagesByMediaTypeAndId(
+        this.mediaType,
+        this.mediaId
+      );
+
+      this.mediaCredits$ = this.mediasService.getCreditsByMediaTypeAndId(
+        this.mediaType,
+        this.mediaId
+      );
+
+      this.relatedMedias$ = this.mediasService.getSimilarMediasByMediaTypeAndId(
+        this.mediaType,
+        this.mediaId
+      );
     });
-
-    this.media$ = this.mediasService.getMediaByTypeAndId(
-      this.mediaType,
-      this.mediaId
-    );
-
-    this.mediaVideos$ = this.mediasService.getVideosByMediaTypeAndId(
-      this.mediaType,
-      this.mediaId
-    );
-
-    this.mediaImages$ = this.mediasService.getImagesByMediaTypeAndId(
-      this.mediaType,
-      this.mediaId
-    );
-
-    this.mediaCredits$ = this.mediasService.getCreditsByMediaTypeAndId(
-      this.mediaType,
-      this.mediaId
-    );
   }
 }

@@ -63,4 +63,19 @@ export class MediasService {
         .pipe(map((data) => data.cast));
     }
   }
+
+  getSimilarMediasByMediaTypeAndId(
+    type: string,
+    id: string
+  ): Observable<Media[]> {
+    if (type === 'movie') {
+      return this.moviesService
+        .getSimilarMovies(id, 12)
+        .pipe(map((tvshows) => tvshows.map(mapMovieToMedia)));
+    } else {
+      return this.tvshowsService
+        .getSimilarTvshows(id, 12)
+        .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
+    }
+  }
 }

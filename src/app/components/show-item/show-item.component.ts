@@ -18,6 +18,7 @@ export class ShowItemComponent {
 
   navigateToDetails() {
     if (this.showItem) {
+      console.log(this.showItem.id);
       this.router.navigate(['details/' + this.showItem.id], {
         state: { mediaType: this.showItem.mediaType },
       });

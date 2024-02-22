@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tvshow, TvshowDto } from '../types/tvshow';
+import { Tvshow, TvshowDTO } from '../types/tvshow';
 import { map } from 'rxjs';
 import { VideosDTO } from '../types/video';
 import { ImagesDTO } from '../types/image';
@@ -17,7 +17,7 @@ export class TvshowsService {
 
   getTvShowsByType(type: string, count = 20) {
     return this.http
-      .get<TvshowDto>(`${this.apiUrl}tv/${type}?api_key=${this.TMDB_API_KEY}`)
+      .get<TvshowDTO>(`${this.apiUrl}tv/${type}?api_key=${this.TMDB_API_KEY}`)
       .pipe(map((data) => data.results.slice(0, count)));
   }
 
@@ -43,5 +43,13 @@ export class TvshowsService {
     return this.http.get<CreditsDTO>(
       `${this.apiUrl}tv/${id}/credits?api_key=${this.TMDB_API_KEY}`
     );
+  }
+
+  getSimilarTvshows(id: string, count: number = 20) {
+    return this.http
+      .get<TvshowDTO>(
+        `${this.apiUrl}tv/${id}/similar?api_key=${this.TMDB_API_KEY}`
+      )
+      .pipe(map((data) => data.results.slice(0, count)));
   }
 }

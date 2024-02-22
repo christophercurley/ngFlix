@@ -22,7 +22,7 @@ export type Movie = {
   genres?: Genre[];
 };
 
-export type MoviesDto = {
+export type MoviesDTO = {
   page: number;
   results: Movie[];
   total_pages: number;

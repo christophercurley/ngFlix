@@ -21,7 +21,7 @@ export type Tvshow = {
   genres?: Genre[];
 };
 
-export type TvshowDto = {
+export type TvshowDTO = {
   page: number;
   results: Tvshow[];
   total_pages: number;

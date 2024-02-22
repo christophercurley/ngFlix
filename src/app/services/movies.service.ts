@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Movie, MoviesDto } from '../types/movie';
+import { Movie, MoviesDTO } from '../types/movie';
 import { map } from 'rxjs';
 import { VideosDTO } from '../types/video';
 import { ImagesDTO } from '../types/image';
@@ -17,7 +17,7 @@ export class MoviesService {
 
   getMoviesByType(type: string, count = 20) {
     return this.http
-      .get<MoviesDto>(
+      .get<MoviesDTO>(
         `${this.apiUrl}movie/${type}?api_key=${this.TMDB_API_KEY}`
       )
       .pipe(map((data) => data.results.slice(0, count)));
@@ -45,5 +45,13 @@ export class MoviesService {
     return this.http.get<CreditsDTO>(
       `${this.apiUrl}movie/${id}/credits?api_key=${this.TMDB_API_KEY}`
     );
+  }
+
+  getSimilarMovies(id: string, count: number = 20) {
+    return this.http
+      .get<MoviesDTO>(
+        `${this.apiUrl}movie/${id}/similar?api_key=${this.TMDB_API_KEY}`
+      )
+      .pipe(map((data) => data.results.slice(0, count)));
   }
 }
