@@ -61,18 +61,18 @@
       </div>
     </p-tabPanel>
     <p-tabPanel header="Videos">
-      <ng-container *ngIf="mediaVideos$ | async as mediaVideos">
+      <ng-container *ngIf="mediaVideos$ | async as videos">
         <div class="grid">
-          <div class="col-4" *ngFor="let video of mediaVideos">
+          <div class="col-4" *ngFor="let video of videos">
             <app-video-embed [video]="video"></app-video-embed>
           </div>
         </div>
       </ng-container>
     </p-tabPanel>
     <p-tabPanel header="Photos">
-      <ng-container *ngIf="mediaImages$ | async as mediaImages">
+      <ng-container *ngIf="mediaImages$ | async as images">
         <div class="grid">
-          <div class="col-2" *ngFor="let image of mediaImages">
+          <div class="col-2" *ngFor="let image of images">
             <p-image
               [src]="imagesSizes.large + image.file_path"
               [alt]="media.title"
@@ -84,7 +84,32 @@
       </ng-container>
     </p-tabPanel>
   </p-tabView>
+
+  <ng-container *ngIf="mediaCredits$ | async as credits">
+    <hr />
+    <h2 class="centered">Cast and Crew</h2>
+    <hr />
+    <p-carousel
+      [value]="credits"
+      [numVisible]="6"
+      [numScroll]="6"
+      [circular]="false"
+    >
+      <ng-template let-credit pTemplate="item">
+        <div class="credit-card">
+          <img
+            *ngIf="credit.profile_path; else defaultCreditPhoto"
+            [src]="imagesSizes.medium + credit.profile_path"
+            alt=""
+          />
+          <div>{{ credit.character }}</div>
+          <div>({{ credit.name }})</div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </ng-container>
 </ng-container>
 
-<!-- <p>The movie ID is: {{ mediaId }}</p>
-<pre>{{ media$ | async | json }}</pre> -->
+<ng-template #defaultCreditPhoto>
+  <img src="assets/images/actor.jpg" alt="" />
+</ng-template>

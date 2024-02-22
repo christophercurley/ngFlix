@@ -6,7 +6,8 @@ import { mapTvshowToMedia } from '../utils/tvshows-utils';
 import { Media } from '../types/media';
 import { Observable, map } from 'rxjs';
 import { Video } from '../types/video';
-import { Image } from '../types/images';
+import { Image } from '../types/image';
+import { Credit } from '../types/credit';
 
 @Injectable({
   providedIn: 'root',
@@ -48,6 +49,18 @@ export class MediasService {
       return this.tvshowsService
         .getTvshowImages(id)
         .pipe(map((data) => data.backdrops));
+    }
+  }
+
+  getCreditsByMediaTypeAndId(type: string, id: string): Observable<Credit[]> {
+    if (type === 'movie') {
+      return this.moviesService
+        .getMovieCredits(id)
+        .pipe(map((data) => data.cast));
+    } else {
+      return this.tvshowsService
+        .getTvshowCredits(id)
+        .pipe(map((data) => data.cast));
     }
   }
 }
