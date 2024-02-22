@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { TvshowsService } from '../../services/tvshows.service';
 import { mapTvshowToMedia } from '../../utils/tvshows-utils';
 import { Observable, map } from 'rxjs';
 import { mapMovieToMedia } from '../../utils/movies-utils';
 import { Media } from '../../types/media';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   popularMovies$: Observable<Media[]> = this.moviesService
     .getMoviesByType('popular', 12)
     .pipe(map((tvshows) => tvshows.map(mapMovieToMedia)));
@@ -27,6 +28,11 @@ export class HomeComponent {
 
   constructor(
     private moviesService: MoviesService,
-    private tvshowsService: TvshowsService
+    private tvshowsService: TvshowsService,
+    private titleService: Title
   ) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('ngFlix - Your Source For Movies');
+  }
 }

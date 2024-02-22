@@ -7,6 +7,7 @@ import { IMAGES_SIZES } from '../../constants/images-sizes';
 import { Video } from '../../types/video';
 import { Image } from '../../types/image';
 import { Credit } from '../../types/credit';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-show-detail',
@@ -25,7 +26,8 @@ export class ShowDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private mediasService: MediasService
+    private mediasService: MediasService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +62,10 @@ export class ShowDetailComponent implements OnInit {
         this.mediaType,
         this.mediaId
       );
+    });
+
+    this.media$?.subscribe((media) => {
+      this.titleService.setTitle(media.title + ' | ngFlix');
     });
   }
 }
