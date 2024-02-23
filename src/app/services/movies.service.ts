@@ -54,4 +54,12 @@ export class MoviesService {
       )
       .pipe(map((data) => data.results.slice(0, count)));
   }
+
+  searchMovies(page: number, searchValue?: string) {
+    return this.http
+      .get<MoviesDTO>(
+        `${this.apiUrl}search/movie?page=${page}&api_key=${this.TMDB_API_KEY}`
+      )
+      .pipe(map((data) => data.results));
+  }
 }

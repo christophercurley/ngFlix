@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
@@ -19,6 +18,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { ImageModule } from 'primeng/image';
 import { CarouselModule } from 'primeng/carousel';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
+import { MediaListComponent } from './pages/media-list/media-list.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +26,12 @@ import { VideoEmbedComponent } from './components/video-embed/video-embed.compon
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MovieListComponent,
     SliderComponent,
     BannerComponent,
     ShowItemComponent,
     ShowDetailComponent,
     VideoEmbedComponent,
+    MediaListComponent,
   ],
   imports: [
     BrowserModule,
