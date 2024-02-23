@@ -11,9 +11,14 @@
   </div>
   <div class="show-item-image">
     <img
+      *ngIf="showItem.poster_path; else defaultMediaPoster"
       [src]="IMAGES_BASE_URL + '/w300' + showItem.poster_path"
       [alt]="showItem.title"
     />
   </div>
   <div class="show-item-title">{{ showItem.title }}</div>
 </a>
+
+<ng-template #defaultMediaPoster>
+  <img src="assets/images/poster-placeholder.webp" [alt]="showItem?.title" />
+</ng-template>
