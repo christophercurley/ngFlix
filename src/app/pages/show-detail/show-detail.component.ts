@@ -32,7 +32,7 @@ export class ShowDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.url.subscribe((url) => {
-      this.mediaType = url[0].path.includes('tv') ? 'tv' : 'movie';
+      this.mediaType = url[0].path === 't' ? 'tv' : 'movie';
     });
 
     this.route.params.subscribe((params) => {

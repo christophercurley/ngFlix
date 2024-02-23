@@ -19,11 +19,11 @@ export class ShowItemComponent {
   navigateToDetails(mediaType: string) {
     if (this.showItem) {
       if (mediaType === 'movie') {
-        this.router.navigate(['movies/details/' + this.showItem.id], {
+        this.router.navigate(['m/details/' + this.showItem.id], {
           state: { mediaType: this.showItem.mediaType },
         });
       } else {
-        this.router.navigate(['tv/details/' + this.showItem.id], {
+        this.router.navigate(['t/details/' + this.showItem.id], {
           state: { mediaType: this.showItem.mediaType },
         });
       }
