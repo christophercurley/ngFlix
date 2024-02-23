@@ -71,10 +71,26 @@ export class MediasService {
     if (type === 'movie') {
       return this.moviesService
         .getSimilarMovies(id, 12)
-        .pipe(map((tvshows) => tvshows.map(mapMovieToMedia)));
+        .pipe(map((movies) => movies.map(mapMovieToMedia)));
     } else {
       return this.tvshowsService
         .getSimilarTvshows(id, 12)
+        .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
+    }
+  }
+
+  searchMedias(
+    type: string,
+    page: number,
+    searchValue: string
+  ): Observable<Media[]> {
+    if (type === 'movie') {
+      return this.moviesService
+        .searchMovies(page, searchValue)
+        .pipe(map((movies) => movies.map(mapMovieToMedia)));
+    } else {
+      return this.tvshowsService
+        .searchTvshows(page, searchValue)
         .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
     }
   }

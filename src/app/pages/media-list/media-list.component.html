@@ -1,1 +1,22 @@
-<p>media-list works!</p>
+<div class="container">
+  <div class="grid">
+    <div class="col-12">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="searchValue"
+          (change)="searchMediasByPageAndValue(1)"
+        />
+      </span>
+    </div>
+  </div>
+  <ng-container *ngIf="mediasList$ | async as mediasList">
+    <div class="grid">
+      <div class="col-2" *ngFor="let media of mediasList">
+        <app-show-item [showItem]="media"></app-show-item>
+      </div>
+    </div>
+  </ng-container>
+</div>

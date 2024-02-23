@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MediasService } from '../../services/medias.service';
 import { Title } from '@angular/platform-browser';
+import { Media } from '../../types/media';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-media-list',
@@ -11,6 +13,8 @@ import { Title } from '@angular/platform-browser';
 export class MediaListComponent implements OnInit {
   mediaType: string = '';
   mediaTypeTitle: string = '';
+  mediasList$: Observable<Media[]> | null = null;
+  searchValue: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -26,5 +30,13 @@ export class MediaListComponent implements OnInit {
     this.mediaTypeTitle = this.mediaType === 'tv' ? 'TV Shows' : 'Movies';
 
     this.titleService.setTitle('ngFlix | ' + this.mediaTypeTitle);
+  }
+
+  searchMediasByPageAndValue(page: number) {
+    this.mediasList$ = this.mediasService.searchMedias(
+      this.mediaType,
+      page,
+      this.searchValue
+    );
   }
 }

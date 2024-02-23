@@ -52,4 +52,12 @@ export class TvshowsService {
       )
       .pipe(map((data) => data.results.slice(0, count)));
   }
+
+  searchTvshows(page: number, searchValue: string) {
+    return this.http
+      .get<TvshowDTO>(
+        `${this.apiUrl}search/tv?query=${searchValue}&page=${page}&api_key=${this.TMDB_API_KEY}`
+      )
+      .pipe(map((data) => data.results));
+  }
 }
