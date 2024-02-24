@@ -1,9 +1,16 @@
 <div class="slider" *ngIf="medias">
   <ng-container *ngFor="let media of medias; let mediaIndex = index">
-    <div class="slide" *ngIf="mediaIndex === slideIndex" @slideFade>
+    <a
+      class="slide"
+      *ngIf="mediaIndex === slideIndex"
+      @slideFade
+      (click)="navigateToDetails(media.id, media.mediaType)"
+      (keydown.enter)="navigateToDetails(media.id, media.mediaType)"
+      tabindex="0"
+    >
       <div class="slide-bg">
         <img
-          [src]="IMAGES_BASE_URL + IMAGES_SIZE + media.backdrop_path"
+          [src]="IMAGES_SIZES.large + media.backdrop_path"
           [alt]="media.title"
         />
       </div>
@@ -32,6 +39,6 @@
         </div>
         <div class="description">{{ media.overview }}</div>
       </div>
-    </div>
+    </a>
   </ng-container>
 </div>

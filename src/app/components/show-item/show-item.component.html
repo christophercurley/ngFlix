@@ -12,7 +12,7 @@
   <div class="show-item-image">
     <img
       *ngIf="showItem.poster_path; else defaultMediaPoster"
-      [src]="IMAGES_BASE_URL + '/w300' + showItem.poster_path"
+      [src]="IMAGES_SIZES.large + showItem.poster_path"
       [alt]="showItem.title"
     />
   </div>

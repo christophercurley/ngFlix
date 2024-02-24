@@ -62,10 +62,10 @@ export class ShowDetailComponent implements OnInit {
         this.mediaType,
         this.mediaId
       );
-    });
 
-    this.media$?.subscribe((media) => {
-      this.titleService.setTitle('ngFlix | ' + media.title);
+      this.media$?.subscribe((media) => {
+        this.titleService.setTitle('ngFlix | ' + media.title);
+      });
     });
   }
 }
