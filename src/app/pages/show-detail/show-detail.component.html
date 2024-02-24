@@ -115,7 +115,7 @@
 
 <ng-container *ngIf="relatedMedias$ | async as relatedMedias">
   <app-banner
-    [title]="'Related ' + mediaType + 's'"
+    [title]="'Similar ' + mediaTypeFormatted + 's'"
     [medias]="relatedMedias"
   ></app-banner>
 </ng-container>

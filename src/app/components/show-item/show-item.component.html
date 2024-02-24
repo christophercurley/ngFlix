@@ -1,10 +1,11 @@
-<a
+<!-- <a
   class="show-item movie-card"
   *ngIf="showItem"
   (click)="navigateToDetails(showItem.mediaType)"
   (keydown.enter)="navigateToDetails(showItem.mediaType)"
   tabindex="0"
->
+> -->
+<a class="show-item movie-card" *ngIf="showItem" [href]="href">
   <div class="show-item-rating">
     <i class="pi pi-star-fill"></i>
     <span>{{ showItem && formatRating(showItem.vote_average) }} / 10</span>

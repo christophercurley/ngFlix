@@ -23,6 +23,7 @@ export class ShowDetailComponent implements OnInit {
   relatedMedias$: Observable<Media[]> | null = null;
   imagesSizes = IMAGES_SIZES;
   mediaType: string = '';
+  mediaTypeFormatted: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -34,6 +35,8 @@ export class ShowDetailComponent implements OnInit {
     this.route.url.subscribe((url) => {
       this.mediaType = url[0].path === 't' ? 'tv' : 'movie';
     });
+
+    this.mediaTypeFormatted = this.mediaType === 'movie' ? 'Movie' : 'TV Show';
 
     this.route.params.subscribe((params) => {
       this.mediaId = params['id'];

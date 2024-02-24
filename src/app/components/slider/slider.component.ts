@@ -10,6 +10,7 @@ import {
 } from '@angular/animations';
 import { Media } from '../../types/media';
 import { Router } from '@angular/router';
+import { computeRoute } from '../../utils/medias-utils';
 
 @Component({
   selector: 'app-slider',
@@ -28,6 +29,7 @@ export class SliderComponent implements OnInit {
   mediasLength: number = 0;
   IMAGES_SIZES = IMAGES_SIZES;
   formatRating = formatRating;
+  computeRoute = computeRoute;
 
   constructor(private router: Router) {}
 
@@ -37,18 +39,6 @@ export class SliderComponent implements OnInit {
     this.mediasLength = this.medias.length;
 
     this.mediasLength > 1 && this.changeSlide();
-  }
-
-  navigateToDetails(id: number, mediaType: string) {
-    if (mediaType === 'movie') {
-      this.router.navigate(['m/details/' + id], {
-        state: { mediaType: mediaType },
-      });
-    } else {
-      this.router.navigate(['t/details/' + id], {
-        state: { mediaType: mediaType },
-      });
-    }
   }
 
   changeSlide() {

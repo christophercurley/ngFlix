@@ -4,9 +4,7 @@
       class="slide"
       *ngIf="mediaIndex === slideIndex"
       @slideFade
-      (click)="navigateToDetails(media.id, media.mediaType)"
-      (keydown.enter)="navigateToDetails(media.id, media.mediaType)"
-      tabindex="0"
+      [href]="computeRoute(media.id, media.mediaType)"
     >
       <div class="slide-bg">
         <img
