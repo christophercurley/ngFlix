@@ -9,7 +9,6 @@ import {
   trigger,
 } from '@angular/animations';
 import { Media } from '../../types/media';
-import { Router } from '@angular/router';
 import { computeRoute } from '../../utils/medias-utils';
 
 @Component({
@@ -30,8 +29,6 @@ export class SliderComponent implements OnInit {
   IMAGES_SIZES = IMAGES_SIZES;
   formatRating = formatRating;
   computeRoute = computeRoute;
-
-  constructor(private router: Router) {}
 
   slideIndex = 0;
 
