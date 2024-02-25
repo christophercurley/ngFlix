@@ -1,5 +1,5 @@
 <ng-container *ngIf="media$ | async as media">
-  <app-slider [medias]="[media]"></app-slider>
+  <app-slider [medias]="[media]" [isForSingleMedia]="true"></app-slider>
 
   <p-tabView>
     <p-tabPanel header="Overview">
@@ -27,13 +27,13 @@
               {{ media.original_language }}
             </div>
           </div>
-          <div class="statistic">
+          <div class="statistic" *ngIf="media.mediaType === 'movie'">
             <div class="label">Budget:</div>
             <div class="value">
               {{ media.budget | currency }}
             </div>
           </div>
-          <div class="statistic">
+          <div class="statistic" *ngIf="media.mediaType === 'movie'">
             <div class="label">Box Office:</div>
             <div class="value">
               {{ media.revenue | currency }}

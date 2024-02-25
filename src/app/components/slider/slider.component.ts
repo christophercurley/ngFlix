@@ -24,6 +24,7 @@ import { computeRoute } from '../../utils/medias-utils';
 })
 export class SliderComponent implements OnInit {
   @Input() medias: Media[] = [];
+  @Input() isForSingleMedia: boolean = false;
 
   mediasLength: number = 0;
   IMAGES_SIZES = IMAGES_SIZES;
@@ -36,6 +37,7 @@ export class SliderComponent implements OnInit {
     this.mediasLength = this.medias.length;
 
     this.mediasLength > 1 && this.changeSlide();
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!' + this.isForSingleMedia);
   }
 
   changeSlide() {
