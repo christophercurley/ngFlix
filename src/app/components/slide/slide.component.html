@@ -1,0 +1,35 @@
+<ng-container *ngIf="media">
+  <div class="slide">
+    <div class="slide-bg">
+      <img
+        [src]="imagesSizes.large + media.backdrop_path"
+        [alt]="media.title"
+      />
+    </div>
+    <div class="slide-pane">
+      <h2 class="title">
+        {{ media.original_title }}
+        <span class="domestic-title" *ngIf="media.original_language !== 'en'">
+          ( {{ media.title }} )
+        </span>
+      </h2>
+
+      <div class="meta mb-4">
+        <div class="rating mb-1">
+          <i class="pi pi-star-fill"></i>
+          <span>{{ formatRating(media.vote_average) }}</span>
+          <span> / 10</span>
+        </div>
+        <div class="votes mb-1">
+          <i class="pi pi-users"></i>
+          <span>{{ media.vote_count }}</span>
+        </div>
+        <div class="release-date">
+          <i class="pi pi-calendar"></i>
+          <span>{{ media.release_date | date : "yyyy" }}</span>
+        </div>
+      </div>
+      <div class="description">{{ media.overview }}</div>
+    </div>
+  </div>
+</ng-container>

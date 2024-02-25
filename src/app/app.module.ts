@@ -21,6 +21,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 import { MediaListComponent } from './pages/media-list/media-list.component';
 import { FormsModule } from '@angular/forms';
+import { SlideComponent } from './components/slide/slide.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     ShowDetailComponent,
     VideoEmbedComponent,
     MediaListComponent,
+    SlideComponent,
   ],
   imports: [
     BrowserModule,

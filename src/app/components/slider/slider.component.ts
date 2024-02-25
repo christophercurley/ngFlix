@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { formatRating } from '../../utils/movies-utils';
 import { IMAGES_SIZES } from '../../constants/images-sizes';
 import {
   animate,
@@ -28,7 +27,6 @@ export class SliderComponent implements OnInit {
 
   mediasLength: number = 0;
   IMAGES_SIZES = IMAGES_SIZES;
-  formatRating = formatRating;
   computeRoute = computeRoute;
 
   slideIndex = 0;
@@ -37,7 +35,6 @@ export class SliderComponent implements OnInit {
     this.mediasLength = this.medias.length;
 
     this.mediasLength > 1 && this.changeSlide();
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!' + this.isForSingleMedia);
   }
 
   changeSlide() {
