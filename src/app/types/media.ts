@@ -1,5 +1,10 @@
 import { Genre } from './genre';
 
+export type PaginatedMediaList = {
+  totalResults: number;
+  mediasList: Media[];
+};
+
 export type Media = {
   id: number;
   mediaType: string;

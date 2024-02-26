@@ -14,14 +14,15 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ShowItemComponent } from './components/show-item/show-item.component';
 import { TvshowsService } from './services/tvshows.service';
 import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
-import { TabViewModule } from 'primeng/tabview';
-import { ImageModule } from 'primeng/image';
-import { CarouselModule } from 'primeng/carousel';
-import { InputTextModule } from 'primeng/inputtext';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 import { MediaListComponent } from './pages/media-list/media-list.component';
 import { FormsModule } from '@angular/forms';
 import { SlideComponent } from './components/slide/slide.component';
+import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
+import { CarouselModule } from 'primeng/carousel';
+import { InputTextModule } from 'primeng/inputtext';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { SlideComponent } from './components/slide/slide.component';
     CarouselModule,
     InputTextModule,
     FormsModule,
+    PaginatorModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],

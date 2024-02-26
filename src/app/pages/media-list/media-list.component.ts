@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MediasService } from '../../services/medias.service';
 import { Title } from '@angular/platform-browser';
-import { Media } from '../../types/media';
+import { PaginatedMediaList } from '../../types/media';
+import { PaginatorState } from 'primeng/paginator';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,8 +14,10 @@ import { Observable } from 'rxjs';
 export class MediaListComponent implements OnInit {
   mediaType: string = '';
   mediaTypeTitle: string = '';
-  mediasList$: Observable<Media[]> | null = null;
   searchValue: string = '';
+  totalRecords: number = 0;
+
+  paginatedMediasList$: Observable<PaginatedMediaList> | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,13 +33,39 @@ export class MediaListComponent implements OnInit {
     this.mediaTypeTitle = this.mediaType === 'tv' ? 'TV Shows' : 'Movies';
 
     this.titleService.setTitle('ngFlix | ' + this.mediaTypeTitle);
+
+    this.searchMediasByPageAndValue(this.mediaType, 1, this.searchValue);
   }
 
-  searchMediasByPageAndValue(page: number) {
-    this.mediasList$ = this.mediasService.searchMedias(
-      this.mediaType,
+  searchMediasByPageAndValue(
+    mediaType: string,
+    page: number,
+    searchValue: string
+  ) {
+    this.paginatedMediasList$ = this.mediasService.searchMedias(
+      mediaType,
       page,
-      this.searchValue
+      searchValue
     );
+
+    this.paginatedMediasList$.subscribe(
+      (data) => (this.totalRecords = data.totalResults)
+    );
+  }
+
+  onPageChange(event: PaginatorState) {
+    console.log({ event });
+    if (event.page) {
+      console.log({ event });
+      const pageNumber: number = event.page + 1;
+
+      this.searchMediasByPageAndValue(
+        this.mediaType,
+        pageNumber,
+        this.searchValue
+      );
+    } else {
+      this.searchMediasByPageAndValue(this.mediaType, 1, this.searchValue);
+    }
   }
 }

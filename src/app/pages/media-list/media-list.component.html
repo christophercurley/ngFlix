@@ -7,16 +7,25 @@
           type="text"
           pInputText
           [(ngModel)]="searchValue"
-          (change)="searchMediasByPageAndValue(1)"
+          (change)="searchMediasByPageAndValue(mediaType, 1, searchValue)"
         />
       </span>
     </div>
   </div>
-  <ng-container *ngIf="mediasList$ | async as mediasList">
+  <ng-container *ngIf="paginatedMediasList$ | async as paginatedMediasList">
     <div class="grid">
-      <div class="col-2" *ngFor="let media of mediasList">
+      <div class="col-2" *ngFor="let media of paginatedMediasList.mediasList">
         <app-show-item [showItem]="media"></app-show-item>
       </div>
     </div>
   </ng-container>
+  <div class="grid">
+    <div class="col-12">
+      <p-paginator
+        (onPageChange)="onPageChange($event)"
+        [rows]="20"
+        [totalRecords]="totalRecords"
+      ></p-paginator>
+    </div>
+  </div>
 </div>

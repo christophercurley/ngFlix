@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tvshow, TvshowDTO } from '../types/tvshow';
-import { map } from 'rxjs';
+import { PaginatedTvshowList, Tvshow, TvshowDTO } from '../types/tvshow';
+import { Observable, map } from 'rxjs';
 import { VideosDTO } from '../types/video';
 import { ImagesDTO } from '../types/image';
 import { CreditsDTO } from '../types/credit';
@@ -53,11 +53,23 @@ export class TvshowsService {
       .pipe(map((data) => data.results.slice(0, count)));
   }
 
-  searchTvshows(page: number, searchValue: string) {
+  searchTvshows(
+    page: number,
+    searchValue?: string
+  ): Observable<PaginatedTvshowList> {
+    const uri: string = searchValue ? 'search/tv' : 'tv/popular';
+
     return this.http
       .get<TvshowDTO>(
-        `${this.apiUrl}search/tv?query=${searchValue}&page=${page}&api_key=${this.TMDB_API_KEY}`
+        `${this.apiUrl + uri}?query=${searchValue}&page=${page}&api_key=${
+          this.TMDB_API_KEY
+        }`
       )
-      .pipe(map((data) => data.results));
+      .pipe(
+        map((data) => ({
+          totalResults: data.total_results,
+          tvshowList: data.results,
+        }))
+      );
   }
 }

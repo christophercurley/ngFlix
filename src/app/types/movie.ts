@@ -28,3 +28,8 @@ export type MoviesDTO = {
   total_pages: number;
   total_results: number;
 };
+
+export type PaginatedMovieList = {
+  totalResults: number;
+  movieList: Movie[];
+};

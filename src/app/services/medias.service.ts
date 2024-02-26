@@ -3,7 +3,7 @@ import { MoviesService } from './movies.service';
 import { mapMovieToMedia } from '../utils/movies-utils';
 import { TvshowsService } from './tvshows.service';
 import { mapTvshowToMedia } from '../utils/tvshows-utils';
-import { Media } from '../types/media';
+import { Media, PaginatedMediaList } from '../types/media';
 import { Observable, map } from 'rxjs';
 import { Video } from '../types/video';
 import { Image } from '../types/image';
@@ -82,16 +82,22 @@ export class MediasService {
   searchMedias(
     type: string,
     page: number,
-    searchValue: string
-  ): Observable<Media[]> {
+    searchValue?: string
+  ): Observable<PaginatedMediaList> {
     if (type === 'movie') {
-      return this.moviesService
-        .searchMovies(page, searchValue)
-        .pipe(map((movies) => movies.map(mapMovieToMedia)));
+      return this.moviesService.searchMovies(page, searchValue).pipe(
+        map((data) => ({
+          totalResults: data.totalResults,
+          mediasList: data.movieList.map((movie) => mapMovieToMedia(movie)),
+        }))
+      );
     } else {
-      return this.tvshowsService
-        .searchTvshows(page, searchValue)
-        .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
+      return this.tvshowsService.searchTvshows(page, searchValue).pipe(
+        map((data) => ({
+          totalResults: data.totalResults,
+          mediasList: data.tvshowList.map((tvshow) => mapTvshowToMedia(tvshow)),
+        }))
+      );
     }
   }
 }

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Movie, MoviesDTO } from '../types/movie';
-import { map } from 'rxjs';
+import { Movie, MoviesDTO, PaginatedMovieList } from '../types/movie';
 import { VideosDTO } from '../types/video';
 import { ImagesDTO } from '../types/image';
 import { CreditsDTO } from '../types/credit';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -55,11 +55,23 @@ export class MoviesService {
       .pipe(map((data) => data.results.slice(0, count)));
   }
 
-  searchMovies(page: number, searchValue: string) {
+  searchMovies(
+    page: number,
+    searchValue?: string
+  ): Observable<PaginatedMovieList> {
+    const uri: string = searchValue ? 'search/movie' : 'movie/popular';
+
     return this.http
       .get<MoviesDTO>(
-        `${this.apiUrl}search/movie?query=${searchValue}&page=${page}&api_key=${this.TMDB_API_KEY}`
+        `${this.apiUrl + uri}?query=${searchValue}&page=${page}&api_key=${
+          this.TMDB_API_KEY
+        }`
       )
-      .pipe(map((data) => data.results));
+      .pipe(
+        map((data) => ({
+          totalResults: data.total_results,
+          movieList: data.results,
+        }))
+      );
   }
 }
