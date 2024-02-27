@@ -6,3 +6,21 @@
 .grid {
   width: 100%;
 }
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+@media(min-width: 775px) {
+  .search-container > span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .search-container input {
+    width: 33%;
+  }
+}
