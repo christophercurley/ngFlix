@@ -57,3 +57,12 @@ h1 {
     text-align: center;
   }
 }
+
+@media (max-width: 990px) {
+  #overview-heading {
+    text-align: center;
+  }
+  .overview {
+    font-size: 1.1rem;
+  }
+}
