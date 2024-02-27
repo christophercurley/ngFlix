@@ -29,7 +29,9 @@
           <span>{{ media.release_date | date : "yyyy" }}</span>
         </div>
       </div>
-      <div class="description">{{ media.overview }}</div>
+      <div class="description" *ngIf="!isForSingleMedia">
+        {{ media.overview }}
+      </div>
     </div>
   </div>
 </ng-container>

@@ -10,6 +10,8 @@ import { formatRating } from '../../utils/movies-utils';
 })
 export class SlideComponent {
   @Input() media: Media | null = null;
+  @Input() isForSingleMedia: boolean = false;
+
   imagesSizes = IMAGES_SIZES;
   formatRating = formatRating;
 }
