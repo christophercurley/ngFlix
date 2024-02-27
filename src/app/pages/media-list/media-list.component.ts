@@ -16,6 +16,7 @@ export class MediaListComponent implements OnInit {
   mediaTypeTitle: string = '';
   searchValue: string = '';
   totalRecords: number = 0;
+  first: number | undefined = 0;
 
   paginatedMediasList$: Observable<PaginatedMediaList> | null = null;
 
@@ -40,7 +41,8 @@ export class MediaListComponent implements OnInit {
   searchMediasByPageAndValue(
     mediaType: string,
     page: number,
-    searchValue: string
+    searchValue: string,
+    resetFirst: boolean = false
   ) {
     this.paginatedMediasList$ = this.mediasService.searchMedias(
       mediaType,
@@ -51,10 +53,15 @@ export class MediaListComponent implements OnInit {
     this.paginatedMediasList$.subscribe(
       (data) => (this.totalRecords = data.totalResults)
     );
+
+    if (resetFirst) {
+      this.first = 0;
+    }
   }
 
   onPageChange(event: PaginatorState) {
-    console.log({ event });
+    this.first = event.first;
+
     if (event.page) {
       console.log({ event });
       const pageNumber: number = event.page + 1;

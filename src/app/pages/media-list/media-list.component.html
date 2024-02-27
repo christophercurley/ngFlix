@@ -7,7 +7,7 @@
           type="text"
           pInputText
           [(ngModel)]="searchValue"
-          (change)="searchMediasByPageAndValue(mediaType, 1, searchValue)"
+          (change)="searchMediasByPageAndValue(mediaType, 1, searchValue, true)"
         />
       </span>
     </div>
@@ -26,9 +26,12 @@
     <div class="col-12">
       <p-paginator
         (onPageChange)="onPageChange($event)"
+        [first]="first ?? 0"
         [rows]="20"
         [totalRecords]="totalRecords"
       ></p-paginator>
     </div>
   </div>
 </div>
+
+<!-- <button type="button" pripple="" class="p-ripple p-element p-paginator-page p-paginator-element p-link ng-star-inserted p-highlight" ng-reflect-ng-class="[object Object]" aria-label="Page 3" aria-current="page"> 3 </button> -->
