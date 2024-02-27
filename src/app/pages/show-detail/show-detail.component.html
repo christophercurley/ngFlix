@@ -73,7 +73,7 @@
     </p-tabPanel>
     <p-tabPanel header="Photos">
       <ng-container *ngIf="mediaImages$ | async as images">
-        <div class="grid">
+        <div class="grid" *ngIf="images.length !== 0; else noPhotosToDisplay">
           <div class="col-12 lg:col-3" *ngFor="let image of images">
             <p-image
               [src]="imagesSizes.large + image.file_path"
@@ -96,6 +96,7 @@
       [numScroll]="6"
       [circular]="false"
       [responsiveOptions]="responsiveOptions"
+      *ngIf="credits.length !== 0; else noCreditsToDisplay"
     >
       <ng-template let-credit pTemplate="item">
         <div class="credit-card">
@@ -112,13 +113,25 @@
   </ng-container>
 </ng-container>
 
-<ng-template #defaultCreditPhoto>
-  <img src="assets/images/actor.jpg" alt="" />
-</ng-template>
-
 <ng-container *ngIf="relatedMedias$ | async as relatedMedias">
   <app-banner
     [title]="'Similar ' + mediaTypeFormatted + 's'"
     [medias]="relatedMedias"
   ></app-banner>
 </ng-container>
+
+<ng-template #noPhotosToDisplay>
+  <div class="text-container">
+    <h2>No Images Found...</h2>
+  </div>
+</ng-template>
+
+<ng-template #noCreditsToDisplay>
+  <div class="text-container">
+    <h2>No Credits Found...</h2>
+  </div>
+</ng-template>
+
+<ng-template #defaultCreditPhoto>
+  <img src="assets/images/actor.jpg" alt="" />
+</ng-template>
