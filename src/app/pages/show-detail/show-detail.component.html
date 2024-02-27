@@ -63,7 +63,7 @@
     <p-tabPanel header="Videos">
       <ng-container *ngIf="mediaVideos$ | async as videos">
         <div class="grid">
-          <div class="col-4" *ngFor="let video of videos">
+          <div class="col-12 lg:col-4" *ngFor="let video of videos">
             <app-video-embed [video]="video"></app-video-embed>
           </div>
         </div>
@@ -72,7 +72,7 @@
     <p-tabPanel header="Photos">
       <ng-container *ngIf="mediaImages$ | async as images">
         <div class="grid">
-          <div class="col-2" *ngFor="let image of images">
+          <div class="col-6 lg:col-2" *ngFor="let image of images">
             <p-image
               [src]="imagesSizes.large + image.file_path"
               [alt]="media.title"
