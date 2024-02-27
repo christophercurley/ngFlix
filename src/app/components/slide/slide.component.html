@@ -4,6 +4,7 @@
       <img
         [src]="imagesSizes.large + media.backdrop_path"
         [alt]="media.title"
+        *ngIf="media.backdrop_path; else noSlideBgFound"
       />
     </div>
     <div class="slide-pane">
@@ -35,3 +36,7 @@
     </div>
   </div>
 </ng-container>
+
+<ng-template #noSlideBgFound>
+  <img src="assets/images/default-background.jpg" alt="" />
+</ng-template>
