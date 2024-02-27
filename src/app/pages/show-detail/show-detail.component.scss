@@ -1,9 +1,5 @@
 @import "../../styles/colors";
 
-h1 {
-  padding-left: 1rem;
-}
-
 ::ng-deep {
   .p-tabview .p-tabview-nav {
     justify-content: center;
@@ -23,7 +19,9 @@ h1 {
 }
 
 .overview {
-  line-height: 1.5
+  line-height: 1.5;
+  text-align: justify;
+  margin-bottom: 3rem;
 } 
 
 .statistic {
