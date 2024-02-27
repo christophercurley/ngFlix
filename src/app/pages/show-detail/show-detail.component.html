@@ -27,22 +27,24 @@
               {{ media.original_language }}
             </div>
           </div>
-          <div class="statistic" *ngIf="media.mediaType === 'movie'">
-            <div class="label">Budget:</div>
-            <div class="value">
-              {{ media.budget | currency }}
+          <ng-container *ngIf="media.mediaType === 'movie'">
+            <div class="statistic">
+              <div class="label">Budget:</div>
+              <div class="value">
+                {{ media.budget | currency }}
+              </div>
             </div>
-          </div>
-          <div class="statistic" *ngIf="media.mediaType === 'movie'">
-            <div class="label">Box Office:</div>
-            <div class="value">
-              {{ media.revenue | currency }}
+            <div class="statistic">
+              <div class="label">Box Office:</div>
+              <div class="value">
+                {{ media.revenue | currency }}
+              </div>
             </div>
-          </div>
-          <div class="statistic">
-            <div class="label">Duration:</div>
-            <div class="value">{{ media.runtime }} min</div>
-          </div>
+            <div class="statistic">
+              <div class="label">Duration:</div>
+              <div class="value">{{ media.runtime }} min</div>
+            </div>
+          </ng-container>
           <div class="statistic">
             <div class="label">Status:</div>
             <div class="value">
