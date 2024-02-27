@@ -1,8 +1,17 @@
 <div class="banner container" *ngIf="medias">
   <h1>{{ title }}</h1>
   <div class="grid">
+    <ng-container
+      *ngIf="medias.length !== 0; else noMediasFound"
+    ></ng-container>
     <div class="col-2" *ngFor="let media of medias">
       <app-show-item [showItem]="media"></app-show-item>
     </div>
+
+    <ng-template #noMediasFound>
+      <div class="text-container">
+        <h2>No Medias Found...</h2>
+      </div>
+    </ng-template>
   </div>
 </div>

@@ -12,6 +12,9 @@
       </span>
     </div>
   </div>
+
+  <h1>{{ mediaTypeTitle }}</h1>
+
   <ng-container *ngIf="paginatedMediasList$ | async as paginatedMediasList">
     <div class="grid">
       <div class="col-2" *ngFor="let media of paginatedMediasList.mediasList">
