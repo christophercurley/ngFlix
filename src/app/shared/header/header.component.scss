@@ -7,16 +7,19 @@ header {
   .logo {
     a {
       img {
-        width: 120px;
+        width: 8rem;
+        margin-left: 2rem;
       }
     }
   }
+
   .nav {
     ul {
       display: block;
       padding: 0;
       margin: 0;
       list-style: none;
+      font-size: 1rem;
 
       li {
         display: inline;
@@ -29,4 +32,11 @@ header {
       }
     }
   }
+}
+
+@media (max-width: 775px) {
+ header .nav ul {
+    font-size: 0.7rem;
+
+ } 
 }
