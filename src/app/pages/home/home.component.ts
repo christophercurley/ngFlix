@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
   popularTvshows$: Observable<Media[]> = this.tvshowsService
     .getTvShowsByType('popular', 12)
     .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
+  topRatedTvshows$: Observable<Media[]> = this.tvshowsService
+    .getTvShowsByType('top_rated', 12)
+    .pipe(map((tvshows) => tvshows.map(mapTvshowToMedia)));
 
   constructor(
     private moviesService: MoviesService,

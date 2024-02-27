@@ -21,4 +21,11 @@
     [title]="'Popular TV Shows'"
     [medias]="popularTvshows"
   ></app-banner>
+
+  <ng-container *ngIf="topRatedTvshows$ | async as topRatedTvshows">
+    <app-banner
+      [title]="'Top Rated TV Shows'"
+      [medias]="topRatedTvshows"
+    ></app-banner>
+  </ng-container>
 </ng-container>
