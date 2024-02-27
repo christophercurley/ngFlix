@@ -64,7 +64,7 @@
     </p-tabPanel>
     <p-tabPanel header="Videos">
       <ng-container *ngIf="mediaVideos$ | async as videos">
-        <div class="grid">
+        <div class="grid" *ngIf="videos.length !== 0; else noVideosToDisplay">
           <div class="col-12 lg:col-4" *ngFor="let video of videos">
             <app-video-embed [video]="video"></app-video-embed>
           </div>
@@ -119,6 +119,12 @@
     [medias]="relatedMedias"
   ></app-banner>
 </ng-container>
+
+<ng-template #noVideosToDisplay>
+  <div class="text-container">
+    <h2>No Videos Found...</h2>
+  </div>
+</ng-template>
 
 <ng-template #noPhotosToDisplay>
   <div class="text-container">
