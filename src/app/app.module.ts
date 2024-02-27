@@ -23,6 +23,7 @@ import { ImageModule } from 'primeng/image';
 import { CarouselModule } from 'primeng/carousel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { PaginatorModule } from 'primeng/paginator';
     InputTextModule,
     FormsModule,
     PaginatorModule,
+    MenuModule,
   ],
   providers: [MoviesService, TvshowsService],
   bootstrap: [AppComponent],
