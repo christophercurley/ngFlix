@@ -5,9 +5,10 @@
     <div class="col-12 search-container">
       <span class="p-input-icon-left">
         <input
+          class="text-input"
           type="text"
           pInputText
-          placeholder="Search. . ."
+          placeholder="🔍"
           [(ngModel)]="searchValue"
           (change)="searchMediasByPageAndValue(mediaType, 1, searchValue, true)"
         />
