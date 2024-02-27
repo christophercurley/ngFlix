@@ -30,6 +30,7 @@
     position: absolute;
     top: 5rem;
     left: 5rem;
+    width: 100%;
 
     .title {
       font-size: 2.5rem;
@@ -67,8 +68,31 @@
 
     .description {
       font-size: 1.2rem;
-      width: 67%;
+      width: 75%;
     }
   }
   
+}
+
+@media (max-width: 775px) {
+  .slide {
+
+    &-pane {
+      top: 0;
+      left: 1rem;
+
+      .title {
+        max-width: 95%;
+      }
+    }
+  
+    .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 3rem;
+      font-size: 1.4rem;
+      width: 95%;
+      max-height: 300px;
+    }
+  }
 }

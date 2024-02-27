@@ -8,6 +8,7 @@ import { Video } from '../../types/video';
 import { Image } from '../../types/image';
 import { Credit } from '../../types/credit';
 import { Title } from '@angular/platform-browser';
+import { CarouselResponsiveOptions } from 'primeng/carousel';
 
 @Component({
   selector: 'app-show-detail',
@@ -24,6 +25,13 @@ export class ShowDetailComponent implements OnInit {
   imagesSizes = IMAGES_SIZES;
   mediaType: string = '';
   mediaTypeFormatted: string = '';
+  responsiveOptions: CarouselResponsiveOptions[] = [
+    {
+      breakpoint: '775px',
+      numVisible: 2,
+      numScroll: 2,
+    },
+  ];
 
   constructor(
     private route: ActivatedRoute,

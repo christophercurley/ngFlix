@@ -4,7 +4,7 @@
   <p-tabView>
     <p-tabPanel header="Overview">
       <div class="grid">
-        <div class="col-3">
+        <div class="col-12 lg:col-3">
           <img
             class="poster"
             [src]="imagesSizes.large + media.poster_path"
@@ -13,7 +13,7 @@
         </div>
 
         <div class="col-9">
-          <h2>Overview</h2>
+          <h1>Overview</h1>
           <p class="overview">{{ media.overview }}</p>
           <div class="statistic">
             <div class="label">Release Date:</div>
@@ -93,6 +93,7 @@
       [numVisible]="6"
       [numScroll]="6"
       [circular]="false"
+      [responsiveOptions]="responsiveOptions"
     >
       <ng-template let-credit pTemplate="item">
         <div class="credit-card">

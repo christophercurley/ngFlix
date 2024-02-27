@@ -46,11 +46,11 @@
 }
 
 @media (max-width: 775px) {
-  .show-item {
-    height: 300px;
+    .show-item {
+      height: 300px;
 
-  &-image img {
-    height: 250px; // Adjust the image height accordingly
+    &-image img {
+      height: 250px; // Adjust the image height accordingly
+    }
   }
-}
 }
