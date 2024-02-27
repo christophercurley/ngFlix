@@ -35,7 +35,18 @@ header {
 }
 
 @media (max-width: 775px) {
- header .nav ul {
+  header .nav ul {
     font-size: 0.7rem;
  } 
+
+  header {
+    .logo {
+      a {
+        img {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+
 }
