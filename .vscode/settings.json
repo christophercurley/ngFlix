@@ -3,5 +3,7 @@
     "angular-*": {
       "style": "scss"
     }
-  }
+  },
+  "appService.defaultWebAppToDeploy": "/subscriptions/b54ca7e7-eced-4616-8cd9-3dae711f1fad/resourceGroups/ngflix/providers/Microsoft.Web/sites/ngflix",
+  "appService.deploySubpath": "dist"
 }
