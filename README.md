@@ -2,7 +2,7 @@
 
 Hello! This is [ngFLix](https://ngflix.chriscurley.dev) :)
 
-ngFlix is a Angular frontend that uses data pulled from TMDB to populate its various pages and components. Overall, it is a simple movie site similar to IMDB with the styling of Netflix.
+ngFlix is an Angular frontend that uses data pulled from TMDB to populate its various pages and components. Overall, it is a simple movie site similar to IMDB with the styling of Netflix.
 
 The site will let you see an assortment of popular, upcoming, and top rated movies and TV shows. Clicking any of the titles will bring you to a screen featuring technical details about the film/TV show's production and cast, as well as media related to it and similar movies or TV shows.
 
