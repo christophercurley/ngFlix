@@ -4,6 +4,7 @@
 @import "primeicons/primeicons.css";
 @import "primeng/resources/themes/md-dark-indigo/theme.css";
 @import "primeng/resources/primeng.css";
+@import "./app/styles/colors";
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -37,4 +38,14 @@ a {
 .movie-card:hover {
   transform: scale(1.05);
   z-index: 2;
+}
+
+.genre-card {
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: $primary-color;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  color: white;
 }

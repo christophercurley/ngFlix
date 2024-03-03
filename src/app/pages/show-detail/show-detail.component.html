@@ -55,7 +55,9 @@
             <div class="label">Genres:</div>
             <div class="value">
               <span *ngFor="let genre of media.genres">
-                {{ genre.name }}
+                <div class="genre-card">
+                  {{ genre.name }}
+                </div>
               </span>
             </div>
           </div>

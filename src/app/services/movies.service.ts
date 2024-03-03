@@ -5,6 +5,7 @@ import { VideosDTO } from '../types/video';
 import { ImagesDTO } from '../types/image';
 import { CreditsDTO } from '../types/credit';
 import { Observable, map } from 'rxjs';
+import { GenresDTO } from '../types/genre';
 
 @Injectable({
   providedIn: 'root',
@@ -73,5 +74,13 @@ export class MoviesService {
           movieList: data.results,
         }))
       );
+  }
+
+  getMoviesGenres() {
+    return this.http
+      .get<GenresDTO>(
+        `${this.apiUrl}genre/movie/list?api_key=${this.TMDB_API_KEY}`
+      )
+      .pipe(map((data) => data.genres));
   }
 }

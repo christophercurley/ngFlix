@@ -24,6 +24,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
 import { MenuModule } from 'primeng/menu';
+import { GenresComponent } from './pages/genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MenuModule } from 'primeng/menu';
     VideoEmbedComponent,
     MediaListComponent,
     SlideComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,

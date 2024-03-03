@@ -14,9 +14,8 @@ export class HeaderComponent implements OnInit {
       {
         items: [
           { label: 'Home', routerLink: '/' },
-          { label: 'Movies', routerLink: '/m/list' },
+          { label: 'Movies', routerLink: 'm/list' },
           { label: 'TV Shows', routerLink: 't/list' },
-          { label: 'Genres', routerLink: '/' },
         ],
       },
     ];

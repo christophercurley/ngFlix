@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="grid">
+    <div class="col-12 movie-genres-links">
+      <ng-container *ngIf="movieGenres$ | async as movieGenres">
+        <h1>Movie Genres</h1>
+        <a
+          *ngFor="let genre of movieGenres"
+          (click)="getMediasByGenre(genre.id)"
+          (keydown)="getMediasByGenre(genre.id)"
+          role="button"
+          aria-hidden="true"
+        >
+          {{ genre.name }}
+        </a>
+      </ng-container>
+    </div>
+
+    <div class="col-12 tv-genres-links">
+      <ng-container *ngIf="tvshowGenres$ | async as tvshowGenres">
+        <h1>TV Genres</h1>
+        <a
+          *ngFor="let genre of tvshowGenres"
+          (click)="getMediasByGenre(genre.id)"
+          (keydown)="getMediasByGenre(genre.id)"
+          role="button"
+          aria-hidden="true"
+        >
+          {{ genre.name }}
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</div>

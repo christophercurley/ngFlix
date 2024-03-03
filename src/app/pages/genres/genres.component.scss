@@ -1,0 +1,24 @@
+@import '../../styles/colors';
+
+.movie-genres-links {
+  a {
+    display: inline-block;
+    padding: 0.5rem;
+    background-color: $primary-color;
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.tv-genres-links {
+  a {
+    display: inline-block;
+    padding: 0.5rem;
+    background-color: $secondary-color;
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+}
+
