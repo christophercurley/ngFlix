@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
 import { ShowItemComponent } from './components/show-item/show-item.component';
 import { TvshowsService } from './services/tvshows.service';
-import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
+import { MediaDetailComponent } from './pages/media-detail/media-detail.component';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 import { MediaListComponent } from './pages/media-list/media-list.component';
 import { FormsModule } from '@angular/forms';
@@ -35,7 +35,7 @@ import { GenresComponent } from './pages/genres/genres.component';
     SliderComponent,
     BannerComponent,
     ShowItemComponent,
-    ShowDetailComponent,
+    MediaDetailComponent,
     VideoEmbedComponent,
     MediaListComponent,
     SlideComponent,

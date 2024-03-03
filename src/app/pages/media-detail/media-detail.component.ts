@@ -11,11 +11,11 @@ import { Title } from '@angular/platform-browser';
 import { CarouselResponsiveOptions } from 'primeng/carousel';
 
 @Component({
-  selector: 'app-show-detail',
-  templateUrl: './show-detail.component.html',
-  styleUrl: './show-detail.component.scss',
+  selector: 'app-media-detail',
+  templateUrl: './media-detail.component.html',
+  styleUrl: './media-detail.component.scss',
 })
-export class ShowDetailComponent implements OnInit {
+export class MediaDetailComponent implements OnInit {
   mediaId: string = '';
   media$: Observable<Media> | null = null;
   mediaVideos$: Observable<Video[]> | null = null;
