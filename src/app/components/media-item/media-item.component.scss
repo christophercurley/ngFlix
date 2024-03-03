@@ -1,4 +1,4 @@
-.show-item {
+.media-item {
   display: block;
   height: 500px;
   position: relative;
@@ -46,7 +46,7 @@
 }
 
 @media (max-width: 775px) {
-    .show-item {
+    .media-item {
       height: 300px;
 
     &-image img {

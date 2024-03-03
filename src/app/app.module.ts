@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
-import { ShowItemComponent } from './components/show-item/show-item.component';
+import { MediaItemComponent } from './components/media-item/media-item.component';
 import { TvshowsService } from './services/tvshows.service';
 import { MediaDetailComponent } from './pages/media-detail/media-detail.component';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
@@ -34,7 +34,7 @@ import { GenresComponent } from './pages/genres/genres.component';
     HomeComponent,
     SliderComponent,
     BannerComponent,
-    ShowItemComponent,
+    MediaItemComponent,
     MediaDetailComponent,
     VideoEmbedComponent,
     MediaListComponent,

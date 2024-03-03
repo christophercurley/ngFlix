@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowItemComponent } from './show-item.component';
+import { ShowItemComponent } from './media-item.component';
 
 describe('ShowItemComponent', () => {
   let component: ShowItemComponent;
@@ -8,10 +8,9 @@ describe('ShowItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ShowItemComponent]
-    })
-    .compileComponents();
-    
+      declarations: [ShowItemComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ShowItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

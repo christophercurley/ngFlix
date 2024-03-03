@@ -5,12 +5,12 @@ import { Media } from '../../types/media';
 import { computeRoute } from '../../utils/medias-utils';
 
 @Component({
-  selector: 'app-show-item',
-  templateUrl: './show-item.component.html',
-  styleUrl: './show-item.component.scss',
+  selector: 'app-media-item',
+  templateUrl: './media-item.component.html',
+  styleUrl: './media-item.component.scss',
 })
-export class ShowItemComponent implements OnInit {
-  @Input() showItem: Media | null = null;
+export class MediaItemComponent implements OnInit {
+  @Input() mediaItem: Media | null = null;
 
   IMAGES_SIZES = IMAGES_SIZES;
   formatRating = formatRating;
@@ -18,8 +18,11 @@ export class ShowItemComponent implements OnInit {
   computeRoute = computeRoute;
 
   ngOnInit(): void {
-    if (this.showItem) {
-      this.href = this.computeRoute(this.showItem.id, this.showItem.mediaType);
+    if (this.mediaItem) {
+      this.href = this.computeRoute(
+        this.mediaItem.id,
+        this.mediaItem.mediaType
+      );
     }
   }
 }
