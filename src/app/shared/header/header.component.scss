@@ -4,6 +4,13 @@ header {
   align-items: center;
   height: 65px;
 
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+  }
+
   .logo {
     a {
       img {
