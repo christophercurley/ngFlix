@@ -1,5 +1,5 @@
-import { WEBSITE_NAME } from '../constants/website-name';
+import { environment } from '../../environments/environment';
 
 export function computeRoute(id: number, mediaType: string): string {
-  return `${WEBSITE_NAME + mediaType[0] + '/details/' + id}`;
+  return `${environment.WEBSITE_NAME + mediaType[0] + '/details/' + id}`;
 }
