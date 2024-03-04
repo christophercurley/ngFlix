@@ -1,17 +1,19 @@
-<a class="media-item movie-card" *ngIf="mediaItem" [href]="href">
-  <div class="media-item-rating">
-    <i class="pi pi-star-fill"></i>
-    <span>{{ mediaItem && formatRating(mediaItem.vote_average) }} / 10</span>
-  </div>
-  <div class="media-item-image">
-    <img
-      *ngIf="mediaItem.poster_path; else defaultMediaPoster"
-      [src]="IMAGES_SIZES.large + mediaItem.poster_path"
-      [alt]="mediaItem.title"
-    />
-  </div>
-  <div class="media-item-title">{{ mediaItem.title }}</div>
-</a>
+<div class="aspect-ratio-container">
+  <a class="media-item movie-card" *ngIf="mediaItem" [href]="href">
+    <div class="media-item-rating">
+      <i class="pi pi-star-fill"></i>
+      <span>{{ mediaItem && formatRating(mediaItem.vote_average) }} / 10</span>
+    </div>
+    <div class="media-item-image">
+      <img
+        *ngIf="mediaItem.poster_path; else defaultMediaPoster"
+        [src]="IMAGES_SIZES.large + mediaItem.poster_path"
+        [alt]="mediaItem.title"
+      />
+    </div>
+    <div class="media-item-title">{{ mediaItem.title }}</div>
+  </a>
+</div>
 
 <ng-template #defaultMediaPoster>
   <img src="assets/images/poster-placeholder.webp" [alt]="mediaItem?.title" />
